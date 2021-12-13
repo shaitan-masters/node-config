@@ -6,15 +6,17 @@ export class Config {
 
 	private readonly config: any;
 
-	constructor(configPath: string, schema: SchemaType) {
+	constructor(configPath: string | undefined, schema: SchemaType) {
 		let configFileData = {};
 
-		try {
-			configFileData = require(configPath);
-            console.log(configFileData);
-		} catch (error) {
-            console.log(error);
-        }
+		if (configPath) {
+			try {
+				configFileData = require(configPath);
+				console.log(configFileData);
+			} catch (error) {
+				console.log(error);
+			}
+		}
 
 		this.config = this.processConfig(schema(this.defineConfig), configFileData);
 	}
