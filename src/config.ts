@@ -10,12 +10,7 @@ export class Config {
 		let configFileData = {};
 
 		if (configPath) {
-			try {
-				configFileData = require(configPath);
-				console.log(configFileData);
-			} catch (error) {
-				console.log(error);
-			}
+			configFileData = require(configPath);
 		}
 
 		this.config = this.processConfig(schema(this.defineConfig), configFileData);
