@@ -1,6 +1,6 @@
 import oTools from '@osmium/tools';
 import {SchemaType} from './types';
-
+import {existsSync} from 'fs';
 
 export class Config {
 
@@ -9,7 +9,7 @@ export class Config {
 	constructor(configPath: string | undefined, schema: SchemaType) {
 		let configFileData = {};
 
-		if (configPath) {
+		if (configPath && existsSync(configPath)) {
 			configFileData = require(configPath);
 		}
 
