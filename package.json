@@ -1,6 +1,6 @@
 {
 	"name"           : "@shaitan-masters/config",
-	"version"        : "0.0.11",
+	"version"        : "0.1.0",
 	"description"    : "Common config",
 	"authors"        : [
 		{
@@ -16,10 +16,7 @@
 		"sdk",
 		"config"
 	],
-	"license"        : "ISC",
-	"bugs"           : {
-		"url": "https://github.com/shaitan-masters/node-config/issues"
-	},
+	"license"        : "MIT",
 	"homepage"       : "https://github.com/shaitan-masters/node-config#readme",
 	"scripts"        : {
 		"build"         : "rimraf ./dist && tsc",
@@ -28,11 +25,11 @@
 	"main"           : "./dist/index.js",
 	"types"          : "./dist/index.d.ts",
 	"dependencies"   : {
-		"@osmium/tools": "~0.4.2"
+		"@osmium/tools": "~0.6.4"
 	},
 	"devDependencies": {
-		"@types/node": "~16.11.15",
-		"rimraf"     : "3.0.2",
-		"typescript" : "~4.5.4"
+		"@types/node": "~16.11.26",
+		"rimraf"     : "^3.0.2",
+		"typescript" : "~4.6.3"
 	}
 }

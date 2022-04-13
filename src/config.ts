@@ -1,12 +1,12 @@
 import oTools from '@osmium/tools';
-import {SchemaType} from './types';
 import {existsSync} from 'fs';
 
-export class Config {
+export type SchemaDefine<K> = (cb: <T>(envName: string, defValue: T) => T) => K;
 
-	private readonly config: any;
+export class Config<SchemaType> {
+	private readonly config: SchemaType;
 
-	constructor(configPath: string | undefined, schema: SchemaType) {
+	constructor(configPath: string | undefined = undefined, schema: SchemaDefine<SchemaType> = () => ({} as SchemaType)) {
 		let configFileData = {};
 
 		if (configPath && existsSync(configPath)) {
@@ -16,7 +16,7 @@ export class Config {
 		this.config = this.processConfig(schema(this.defineConfig), configFileData);
 	}
 
-	get() {
+	get(): SchemaType {
 		return this.config;
 	}
 
